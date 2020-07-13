@@ -1,0 +1,28 @@
+form{
+    min-height: 15vh;
+    width: inherit;
+    padding: 8px;
+}
+label,button{
+    margin-left: 16px;
+}
+input{
+    margin-left: 8px;
+}
+
+.time{
+    width: 40px;
+}
+
+.dist{
+    width: 60px;
+}
+
+
+.form_Inputs{
+    display: inline-flex;
+}
+
+.form_input{
+    flex:1;
+}

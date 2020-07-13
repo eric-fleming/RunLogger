@@ -1,0 +1,23 @@
+/***** PROFILE *****/
+.profile{
+  width:250px;
+  height: 300px;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 8px;
+  margin-top:16px;
+  margin-left:2%;
+}
+
+.name{
+  color: aqua;
+}
+
+.stats{
+  text-align: left;
+}
+
+.stats > ul{
+  list-style: none;
+  list-style-position: inherit;
+}
