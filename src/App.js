@@ -6,7 +6,7 @@ import './App.css';
 import Profile from './components/profile/profile';
 import AddRun from './components/addrun/addrun';
 import RunTable from './components/runtable/runtable';
-
+import TestDB from './components/testdb/testdb';
 
 function App() {
 
@@ -19,7 +19,8 @@ function App() {
       </header>
       <main>
         <section className="left-content">
-          <Profile runCount="535" totalMiles="1600 mi" longestRun="26.2 mi" fastestPace="6:35 min/mi" />
+          <Profile runCount="535" totalMiles="1600 mi" longestRun="26.2 mi" fastestPace="6:35 min/mi"/>
+          <TestDB />
         </section>
         <section className="right-content">
           <div>
