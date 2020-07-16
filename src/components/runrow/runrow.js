@@ -1,6 +1,6 @@
 import React from 'react'
 
-const runrow = (props) => {
+const RunRow = (props) => {
     const {index,date,dist,time,pace} = props;
     return (
         <tr>
@@ -13,4 +13,4 @@ const runrow = (props) => {
     )
 }
 
-export default runrow
+export default RunRow
