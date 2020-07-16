@@ -13,7 +13,11 @@ const MainPage = () => {
                 <section className="left-content">
                     <Profile runCount="535" totalMiles="1600 mi" longestRun="26.2 mi" fastestPace="6:35 min/mi" />
                     <div>
-                        <Link to="/database">Database</Link>
+                        <ul className="text-left">
+                            <li><Link to="/database">Database</Link></li>
+                            <li><Link to="/runners">Runners</Link></li>
+                            <li><Link to="/runs">Running History</Link></li>
+                        </ul>
                     </div>
                 </section>
                 <section className="right-content">

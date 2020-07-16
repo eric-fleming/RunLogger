@@ -8,6 +8,8 @@ import MainPage from './pages/mainpage';
 import PageNotFound from './pages/pagenotfound';
 import DatabaseSearch from './pages/databasesearch';
 
+import GetRunners from './components/testdb/getRunners';
+import GetRuns from './components/testdb/getRuns';
 
 function App() {
 
@@ -18,6 +20,8 @@ function App() {
       <Switch>
         <Route exact path="/" component={MainPage} />
         <Route exact path="/database" component={DatabaseSearch} />
+        <Route exact path="/runners" component={GetRunners} />
+        <Route exact path="/runs" component={GetRuns} />
         <Route exact path="/404" component={PageNotFound} />
         <Redirect to="/404" />
       </Switch>
