@@ -38,6 +38,7 @@ const Runtable = () => {
             <tbody>
                 {runs.map(run => (
                     <RunRow
+                        key={run.index}
                         index={run.index}
                         date={run.date}
                         dist={run.dist}
