@@ -1,20 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../App.css';
 import Profile from '../components/profile/profile';
 import AddRun from '../components/addrun/addrun';
 import RunTable from '../components/runtable/runtable';
-import TestDB from '../components/testdb/testdb';
+
 
 const MainPage = () => {
     return (
         <div className="App">
-            <header className="App-header">
-                <h1>RunLogger</h1>
-            </header>
             <main>
                 <section className="left-content">
                     <Profile runCount="535" totalMiles="1600 mi" longestRun="26.2 mi" fastestPace="6:35 min/mi" />
-                    <TestDB />
+                    <div>
+                        <Link to="/database">Database</Link>
+                    </div>
                 </section>
                 <section className="right-content">
                     <div>

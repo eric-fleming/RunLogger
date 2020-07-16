@@ -2,10 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import AppHeader from './components/appheader/appheader';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
+    <AppHeader />
     <App />
   </React.StrictMode>,
   document.getElementById('root')

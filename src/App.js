@@ -1,17 +1,13 @@
 import React from 'react';
 //import logo from './logo.svg';
 import './App.css';
-import { Route, Switch, Link, Redirect, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-dom';
 
 // Components
 import MainPage from './pages/mainpage';
 import PageNotFound from './pages/pagenotfound';
+import DatabaseSearch from './pages/databasesearch';
 
-
-import Profile from './components/profile/profile';
-import AddRun from './components/addrun/addrun';
-import RunTable from './components/runtable/runtable';
-import TestDB from './components/testdb/testdb';
 
 function App() {
 
@@ -21,7 +17,9 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/" component={MainPage} />
-        <Route component={PageNotFound} />
+        <Route exact path="/database" component={DatabaseSearch} />
+        <Route exact path="/404" component={PageNotFound} />
+        <Redirect to="/404" />
       </Switch>
       
     </Router>
