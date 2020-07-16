@@ -48,3 +48,8 @@ main{
   flex:2;
   text-align: left;
 }
+
+
+.text-left{
+  text-align: left;
+}
