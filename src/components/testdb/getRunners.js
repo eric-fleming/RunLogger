@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import RunnerRow from './runnersUI/runnerrow';
-
+import AddRunners from '../addrunners/addrunner';
 
 function GetRunners() {
 
@@ -28,6 +28,10 @@ function GetRunners() {
         <div>
             <h3>Runners in the Database</h3>
             <br />
+            <button onClick={fetchRunners}>Fetch Runners</button>
+            <br />
+            <AddRunners />
+            <br/>
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
