@@ -9,12 +9,14 @@ import MainPage from './pages/mainpage';
 import PageNotFound from './pages/pagenotfound';
 import DatabaseSearch from './pages/databasesearch';
 
+import Profile from './components/profile/profile';
 import GetRunners from './components/testdb/getRunners';
 import GetRuns from './components/testdb/getRuns';
 
 function App() {
 
-  
+  // could fetch user data here
+  // then pass it into the profile component
 
   return (
     <div>
@@ -22,6 +24,7 @@ function App() {
         <AppHeader />
         <Switch>
           <Route exact path="/" component={MainPage} />
+          <Route exact path="/profile" component={Profile} />
           <Route exact path="/database" component={DatabaseSearch} />
           <Route exact path="/runners" component={GetRunners} />
           <Route exact path="/runs" component={GetRuns} />

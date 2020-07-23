@@ -2,6 +2,10 @@ import React from 'react'
 import style from './profile.module.css';
 
 const profile = (props) => {
+
+    // could fetch user data here
+    
+
     return (
         <article className={style.profile}>
             <h2 className={style.name}>Eric Fleming</h2>
