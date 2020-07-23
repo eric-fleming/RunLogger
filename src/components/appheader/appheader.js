@@ -10,6 +10,9 @@ function AppHeader() {
                 <div className={styles.nav_item}>
                     <Link className={styles.nav_text} to="/">Home</Link>
                 </div>
+                <div class={styles.nav_item}>
+                    <Link className={styles.nav_text} to="/Profile">Profile</Link>
+                </div>
                 <div className={styles.nav_item}>
                     <Link className={styles.nav_text} to="/database">Database</Link>
                 </div>
