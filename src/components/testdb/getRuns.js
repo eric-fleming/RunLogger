@@ -1,21 +1,24 @@
 import React, { useState, useEffect } from 'react';
+import RunsRow from './runsUI/runsrow';
 
 function GetRuns() {
 
-    const [history, setHistory] = useState(false);
+    const [history, setHistory] = useState([]);
 
     useEffect(() => {
-        getHistory();
+        fetchHistory();
     }, []);
 
 
-    function getHistory() {
+    function fetchHistory() {
         fetch('http://localhost:3001/runs')
             .then(response => {
                 return response.text();
             })
-            .then(data => {
-                setHistory(data);
+            .then(payload => {
+                let json = JSON.parse(payload);
+                // payloads are json represented as strings with one key (data)
+                setHistory(json.data);
             });
     };
 
@@ -23,9 +26,34 @@ function GetRuns() {
         <div>
             <h3>Running History</h3>
             <br />
-            {history ? history : 'There are no run history in the database'}
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">date</th>
+                        <th scope="col">dist</th>
+                        <th scope="col">time</th>
+                        <th scope="col">pace</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {history.map(run => (
+                        
+                        <RunsRow
+                            key={run["runner.id"]}
+                            id={run["runner.id"]}
+                            date={run.date}
+                            distance={run.distance}
+                            time={run.time}
+                            pace={run.pace}
+                        />
+                    ))}
+                </tbody>
+            </table>
+            
         </div>
     )
 }
 
 export default GetRuns;
+// {history ? history : 'There are no run history in the database'}
