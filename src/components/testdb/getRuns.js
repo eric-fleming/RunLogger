@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import RunsRow from './runsUI/runsrow';
-
+import AddRun from '../addrun/addrun';
 function GetRuns() {
 
     const [history, setHistory] = useState([]);
@@ -26,6 +26,9 @@ function GetRuns() {
         <div>
             <h3>Running History</h3>
             <br />
+            <div>
+                <AddRun />
+            </div>
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
@@ -40,8 +43,8 @@ function GetRuns() {
                     {history.map(run => (
                         
                         <RunsRow
-                            key={run["runner.id"]}
-                            id={run["runner.id"]}
+                            key={run.runnerid+run.date}
+                            id={run.runnerid}
                             date={run.date}
                             distance={run.distance}
                             time={run.time}

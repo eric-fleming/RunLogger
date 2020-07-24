@@ -2,11 +2,44 @@ import React from 'react'
 import style from './addrun.module.css';
 
 
-const addrun = () => {
+const AddRun = () => {
+
+    const addRun = () => {
+        let doc = document;
+        let runner_id = parseInt(doc.getElementById('runner_id').value);
+        let date = doc.getElementById('date').value;
+        let distance = parseFloat(doc.getElementById('dist').value);;
+        let hr = parseInt(doc.getElementById('time-hr').value);
+        let min = parseInt(doc.getElementById('time-min').value);
+        let sec = parseInt(doc.getElementById('time-sec').value);
+        let time = 60*hr+min+(sec/60);
+
+        fetch('http://localhost:3001/addrun', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                runnerid: runner_id,
+                date: date,
+                distance: distance,
+                time: time
+            })
+        })
+        .then(response => {
+            console.log(response.text());
+            window.location.reload();
+        })
+    }
+
     return (
         <div>
             <form>
                 <div className={style.form_Inputs}>
+                    <div className={style.form_Input}>
+                        <label for="runner_id">Runner ID</label>
+                        <input id="runner_id" type="number" min="1"></input><br />
+                    </div>
                     <div className={style.form_Input}>
                         <label for="date">Date</label>
                         <input id="date" type="text"></input><br />
@@ -22,10 +55,10 @@ const addrun = () => {
                         <input className={style.time} id="time-sec" type="number" min="0"></input>
                     </div>
                 </div>
-                <button class="btn btn-primary" type="submit">Enter</button>
+                <button class="btn btn-primary" onClick={addRun}>Enter Run</button>
             </form>
         </div>
     )
 }
 
-export default addrun
+export default AddRun
