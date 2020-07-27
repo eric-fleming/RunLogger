@@ -37,6 +37,7 @@ function GetRuns() {
                         <th scope="col">dist</th>
                         <th scope="col">time</th>
                         <th scope="col">pace</th>
+                        <th scope="col">changes</th>
                     </tr>
                 </thead>
                 <tbody>

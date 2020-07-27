@@ -12,7 +12,9 @@ const AddRun = () => {
         let hr = parseInt(doc.getElementById('time-hr').value);
         let min = parseInt(doc.getElementById('time-min').value);
         let sec = parseInt(doc.getElementById('time-sec').value);
-        let time = 60*hr+min+(sec/60);
+
+        // time is stored in seconds
+        let time = (sec + 60*min + 3600*hr);
 
         fetch('http://localhost:3001/addrun', {
             method: 'POST',
