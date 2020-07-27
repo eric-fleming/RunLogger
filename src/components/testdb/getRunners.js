@@ -38,6 +38,7 @@ function GetRunners() {
                         <th scope="col">#</th>
                         <th scope="col">First</th>
                         <th scope="col">Last</th>
+                        <th scope="col">Changes</th>
                     </tr>
                 </thead>
                 <tbody>
