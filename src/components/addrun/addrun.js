@@ -16,7 +16,7 @@ const AddRun = () => {
         // time is stored in seconds
         let time = (sec + 60*min + 3600*hr);
 
-        fetch('http://localhost:3001/addrun', {
+        fetch('http://localhost:3001/runs', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

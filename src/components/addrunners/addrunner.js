@@ -26,7 +26,7 @@ function AddRunner() {
         let first = doc.getElementById('firstName').value;
         let last = doc.getElementById('lastName').value;
 
-        fetch('http://localhost:3001/addrunner', {
+        fetch('http://localhost:3001/runners', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
