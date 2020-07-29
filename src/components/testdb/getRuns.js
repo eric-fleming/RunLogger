@@ -44,7 +44,8 @@ function GetRuns() {
                     {history.map(run => (
                         
                         <RunsRow
-                            key={run.runnerid+run.date}
+                            key={run.run_uid}
+                            run_uid={run.run_uid}
                             id={run.runnerid}
                             date={run.date}
                             distance={run.distance}

@@ -1,67 +1,66 @@
 import React from 'react'
+import TimeData from '../../../utilities/timedata';
 
-function generateClockTime(time){
-    let clock_time = [0, 0, 0];
-    while (time > 0) {
-        if (time >= 3600) {
-            clock_time[0]++;
-            time -= 3600;
-        }
-        else if (time >= 60) {
-            clock_time[1]++;
-            time -= 60;
-        }
-        else {
-            clock_time[2] = time;
-            break;
-        }
-    }
-
-    for (let i = 0; i < 3; i++) {
-        let temp = clock_time[i]
-        if (temp < 10) {
-            clock_time[i] = "0" + temp;
-        }
-    }
-
-    clock_time = `${clock_time[0]}:${clock_time[1]}:${clock_time[2]}`;
-    return clock_time;
-}
-
-function generatePace(d,t){
-    t = Number(t);
-    let hr_limit = Math.floor(Number(t)/(d*3600));
-
-    if(hr_limit === 0){
-        let min_pace = t/(d*60);
-        let min = Math.floor(min_pace);
-        let sec = Math.floor(60 * (min_pace - min));
-        if(sec < 10){
-            sec = `0${sec}`;
-        }
-        return `${min}:${sec} min/mi`;
-    }
-    else{
-        return `pace is over an hour per mile`;
-    }
-
-}
 
 const RunsRow = (props) => {
-    const { id, date, distance, time } = props;
+    const { run_uid, id, date, distance, time } = props;
 
-    let clock_time = generateClockTime(time);
-    let pace = generatePace(distance,time);
+    let clock_time = TimeData.generateClockTime(time);
+    let pace = TimeData.generatePace(distance,time);
+    let clean_date = TimeData.trimDateString(date);
+
+    function editRun() {
+        console.log(`Making changes to the Run fields`);
+        let new_date = prompt(`Your (new) date? Or hit cancel.`);
+        let new_dist = prompt(`Your (new) dist? Or hit cancel.`);
+        let new_time = prompt(`Your (new) time? Or hit cancel.`);
+
+        fetch(`http://localhost:3001/runs/${run_uid}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                run_uid: run_uid,
+                runnerid: id,
+                date: new_date || date,
+                distance: new_dist || distance,
+                time: new_time ||time
+            })
+        })
+            .then(response => {
+                console.log(response.text());
+                window.location.reload();
+            })
+    }
+
+    function deleteRun() {
+        fetch(`http://localhost:3001/runs/${run_uid}`,
+            {
+                method: 'DELETE',
+            })
+            .then(response => {
+                return response.text()
+            })
+            .then(message => {
+                alert(message);
+                window.location.reload();
+            })
+    }
+
+
+
+
     return (
         <tr>
             <th scope="row">{id}</th>
-            <td>{date}</td>
+            <td>{clean_date}</td>
             <td>{distance}</td>
             <td>{clock_time}</td>
             <td>{pace}</td>
             <td>
-                <button class="btn btn-warning">Edit</button>
-                <button class="btn btn-danger">Delete</button>
+                <button onClick={editRun} class="btn btn-warning">Edit</button>
+                <button onClick={deleteRun} class="btn btn-danger">Delete</button>
             </td>
         </tr>
     )
