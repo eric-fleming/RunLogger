@@ -1,0 +1,25 @@
+.sidebar{
+    display: block;
+    background-color: ghostwhite;
+    width: 200px;
+    height: 100vh;
+
+}
+
+.sidebar_link{
+    background-color: inherit;
+    font-size: 24px;
+    display: block;
+    width:inherit;
+    height: 10vh;
+    padding-left: 24px;
+    text-decoration: none;
+    color: black;
+    
+}
+
+.sidebar_link:hover,
+.sidebar_link:focus{
+    background-color: aqua;
+    color: black    ;
+}
