@@ -2,6 +2,8 @@
 
 This project is to improve upon some of the features in one of my favorite app: RunKeeper.  In general the app does a poor job of filtering.  It decides the categories for you instead of allowing you to enter query parameters.  In addition it will rank your pace and tell you how much slower off your fastest time was but won't take into account things like intervals versus continuous.  I want a sort of progress bar to indicate how fast I was.
 
+![app picture](./public/runlogger.png)
+
 ## Goals
 -  Implement better filtering
 -  Percent progress bar for pace
