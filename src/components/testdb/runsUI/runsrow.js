@@ -1,4 +1,8 @@
-import React from 'react'
+import React from 'react';
+import './runsrow.module.css';
+import Button from '@material-ui/core/Button';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
 import TimeData from '../../../utilities/timedata';
 
 
@@ -59,8 +63,8 @@ const RunsRow = (props) => {
             <td>{clock_time}</td>
             <td>{pace}</td>
             <td>
-                <button onClick={editRun} class="btn btn-warning">Edit</button>
-                <button onClick={deleteRun} class="btn btn-danger">Delete</button>
+                <Button variant="contained" color="primary" onClick={editRun} startIcon={<EditIcon/>}>Edit</Button>
+                <Button variant="contained" color="Secondary" onClick={deleteRun} startIcon={<DeleteIcon />}>Delete</Button>
             </td>
         </tr>
     )

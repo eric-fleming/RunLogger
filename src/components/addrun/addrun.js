@@ -1,4 +1,7 @@
-import React from 'react'
+import React from 'react';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import SendIcon from '@material-ui/icons/Send';
 import style from './addrun.module.css';
 
 
@@ -39,25 +42,24 @@ const AddRun = () => {
             <form>
                 <div className={style.form_Inputs}>
                     <div className={style.form_Input}>
-                        <label for="runner_id">Runner ID</label>
-                        <input id="runner_id" type="number" min="1"></input><br />
+                        <TextField className={style.run_id} id="runner_id" label="Runner ID"/>
                     </div>
                     <div className={style.form_Input}>
                         <label for="date">Date</label>
-                        <input id="date" type="text"></input><br />
+                        <TextField id="date" label="YYYY-MM-DD" />
                     </div>
                     <div className={style.form_Input}>
-                        <label for="dist">Dist</label>
-                        <input className={style.dist} id="dist" type="text"></input><br />
+                        <TextField className={style.dist} id="dist" label="Distance" />
                     </div>
                     <div className={style.form_Input}>
-                        <label for="time-hr">Time</label>
-                        <input className={style.time} id="time-hr" type="number" min="0"></input>
-                        <input className={style.time} id="time-min" type="number" min="0"></input>
-                        <input className={style.time} id="time-sec" type="number" min="0"></input>
+                        <label for="hr">Time</label>
+                        <TextField className={style.time} id="time-hr" label="hr" />
+                        <TextField className={style.time} id="time-min" label="min" />
+                        <TextField className={style.time} id="time-sec" label="sec" />
                     </div>
                 </div>
-                <button class="btn btn-primary" onClick={addRun}>Enter Run</button>
+                <Button variant="contained" color="primary" onClick={addRun} endIcon={<SendIcon />}>Enter Run</Button>
+                
             </form>
         </div>
     )
