@@ -1,0 +1,13 @@
+.name_input{
+    display: inline-flex;
+
+}
+
+.half_no_pad{
+    flex:1;
+    
+}
+
+.half_with_pad{
+    padding-left: 16px;
+}

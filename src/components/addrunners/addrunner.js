@@ -1,25 +1,9 @@
 import React from 'react';
-//import style from './addrunner.module.css';
-
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import style from './addrunner.module.css';
 
 function AddRunner() {
-
-    const createRunner = () => {
-        let first = prompt("first name?");
-        let last = prompt("last name?");
-
-        fetch('http://localhost:3001/addrunner',{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({first:first,last:last})
-        })
-        .then(response => {
-            console.log(response.text());
-            window.location.reload();
-        })
-    }
 
     const addRunner = () => {
         let doc = document;
@@ -40,21 +24,13 @@ function AddRunner() {
     }
 
     return (
-        <div>
             <form>
-                <div>
-                    <label for="firstName">First</label>
-                    <input id="firstName" type="text"></input>
+                <div className={style.name_input}>
+                    <div className={style.half_no_pad}><TextField id="firstName" label="first name" /></div>
+                    <div className={style.half_with_pad}><TextField id="lastName" label="last name" /></div>
                 </div>
-                <div>
-                    <label for="lastName">Last</label>
-                    <input id="lastName" type="text"></input>
-                </div>
-                <button onClick={addRunner}>Add a Runner from Form</button>
+                <Button variant="contained" color="primary" onClick={addRunner}>Add a Runner</Button>
             </form>
-            <button onClick={createRunner}>Add a Runner with Prompt</button>
-            
-        </div>
     )
 }
 
