@@ -1,7 +1,9 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add';
 import style from './addrunner.module.css';
+
 
 function AddRunner() {
 
@@ -26,10 +28,16 @@ function AddRunner() {
     return (
             <form>
                 <div className={style.name_input}>
-                    <div className={style.half_no_pad}><TextField id="firstName" label="first name" /></div>
-                    <div className={style.half_with_pad}><TextField id="lastName" label="last name" /></div>
+                    <div className={style.half_no_pad}>
+                        <TextField id="firstName" label="first name" />
+                    </div>
+                    <div className={style.half_with_pad}>
+                        <TextField id="lastName" label="last name" />
+                    </div>
                 </div>
-                <Button variant="contained" color="primary" onClick={addRunner}>Add a Runner</Button>
+                <Button variant="contained" color="primary" onClick={addRunner} endIcon={<AddIcon />}>
+                    Add
+                </Button>
             </form>
     )
 }

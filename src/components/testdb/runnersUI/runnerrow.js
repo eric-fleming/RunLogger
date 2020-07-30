@@ -1,5 +1,7 @@
 import React from 'react'
-
+import Button from '@material-ui/core/Button';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 
 const RunnerRow = (props) => {
@@ -48,8 +50,8 @@ const RunnerRow = (props) => {
             <td>{first}</td>
             <td>{last}</td>
             <td>
-                <button onClick={editRunner} class="btn btn-warning">Edit</button>
-                <button onClick={deleteRunner} class="btn btn-danger">Delete</button>
+                <Button variant="contained" color="primary" onClick={editRunner} startIcon={<EditIcon />}>Edit</Button>
+                <Button variant="contained" color="Secondary" onClick={deleteRunner} startIcon={<DeleteIcon />}>Delete</Button>
             </td>
         </tr>
     )

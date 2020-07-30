@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import RunnerRow from './runnersUI/runnerrow';
 import AddRunners from '../addrunners/addrunner';
+import Button from '@material-ui/core/Button';
+import SyncIcon from '@material-ui/icons/Sync';
 
 function GetRunners() {
 
@@ -26,11 +28,12 @@ function GetRunners() {
 
     return (
         <div>
-            <h3>Runners in the Database</h3>
-            <br />
-            <button onClick={fetchRunners}>Fetch Runners</button>
+            <h3>Add a Runner</h3>
             <br />
             <AddRunners />
+            <br/>
+            <Button variant="contained" color="secondary" onClick={fetchRunners} endIcon={<SyncIcon />}>Update Runners</Button>
+            <br />
             <br/>
             <table class="table">
                 <thead class="thead-dark">
