@@ -1,8 +1,9 @@
 import React from 'react';
+import style from './addrun.module.css';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import SendIcon from '@material-ui/icons/Send';
-import style from './addrun.module.css';
+import DatePicker from '../datepicker/datepicker';
 
 
 const AddRun = () => {
@@ -10,8 +11,8 @@ const AddRun = () => {
     const addRun = () => {
         let doc = document;
         let runner_id = parseInt(doc.getElementById('runner_id').value);
-        let date = doc.getElementById('date').value;
-        let distance = parseFloat(doc.getElementById('dist').value);;
+        let date = doc.getElementById('date-picker').value;
+        let distance = parseFloat(doc.getElementById('dist').value);
         let hr = parseInt(doc.getElementById('time-hr').value);
         let min = parseInt(doc.getElementById('time-min').value);
         let sec = parseInt(doc.getElementById('time-sec').value);
@@ -45,8 +46,9 @@ const AddRun = () => {
                         <TextField className={style.run_id} id="runner_id" label="Runner ID"/>
                     </div>
                     <div className={style.form_Input}>
-                        <label for="date">Date</label>
-                        <TextField id="date" label="YYYY-MM-DD" />
+                        {/* <label for="date">Date</label>
+                        <TextField id="date" label="YYYY-MM-DD" /> */}
+                        <DatePicker />
                     </div>
                     <div className={style.form_Input}>
                         <TextField className={style.dist} id="dist" label="Distance" />
@@ -59,7 +61,6 @@ const AddRun = () => {
                     </div>
                 </div>
                 <Button variant="contained" color="primary" onClick={addRun} endIcon={<SendIcon />}>Enter Run</Button>
-                
             </form>
         </div>
     )

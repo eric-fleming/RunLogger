@@ -20,29 +20,25 @@ function App() {
   // then pass it into the profile component
 
   return (
-    <div>
-      <Router>
-        <AppHeader />
-        <div>
-          <div className="sidebar">
-            <SideNav />
-          </div>
-          <div className="main_content">
-            <Switch>
-              <Route exact path="/" component={MainPage} />
-              <Route exact path="/profile" component={Profile} />
-              <Route exact path="/database" component={DatabaseSearch} />
-              <Route exact path="/runners" component={GetRunners} />
-              <Route exact path="/runs" component={GetRuns} />
-              <Route exact path="/404" component={PageNotFound} />
-              <Redirect to="/404" />
-            </Switch>
-          </div>
+    <Router>
+      <AppHeader />
+      <div>
+        <div className="sidebar">
+          <SideNav />
         </div>
-
-      </Router>
-    </div>
-    
+        <div className="main_content">
+          <Switch>
+            <Route exact path="/" component={MainPage} />
+            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/database" component={DatabaseSearch} />
+            <Route exact path="/runners" component={GetRunners} />
+            <Route exact path="/runs" component={GetRuns} />
+            <Route exact path="/404" component={PageNotFound} />
+            <Redirect to="/404" />
+          </Switch>
+        </div>
+      </div>
+    </Router>
   );
 }
 
