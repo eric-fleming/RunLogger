@@ -1,6 +1,6 @@
 import React from 'react'
-import GetRunners from '../components/testdb/getRunners';
-import GetRuns from '../components/testdb/getRuns';
+import GetRunners from '../components/runnersUI/getRunners';
+import GetRuns from '../components/runsUI/getRuns';
 
 function DatabaseSearch() {
     return (

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import style from './runtable.module.css';
-import RunRow from '../runrow/runrow';
+import RunRow from './runrow/runrow';
 
 // Data
 import rundata from './rundata.json';

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import RunsRow from './runsUI/runsrow';
+import RunsRow from './runsrow';
 import AddRun from '../addrun/addrun';
 function GetRuns() {
 

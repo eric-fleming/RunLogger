@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import RunnerRow from './runnersUI/runnerrow';
+import RunnerRow from './runnerrow';
 import AddRunners from '../addrunners/addrunner';
 import Button from '@material-ui/core/Button';
 import SyncIcon from '@material-ui/icons/Sync';

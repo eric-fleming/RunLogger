@@ -11,8 +11,8 @@ import PageNotFound from './pages/pagenotfound';
 import DatabaseSearch from './pages/databasesearch';
 
 import Profile from './components/profile/profile';
-import GetRunners from './components/testdb/getRunners';
-import GetRuns from './components/testdb/getRuns';
+import GetRunners from './components/runnersUI/getRunners';
+import GetRuns from './components/runsUI/getRuns';
 
 function App() {
 

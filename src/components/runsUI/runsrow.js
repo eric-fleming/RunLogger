@@ -3,10 +3,10 @@ import './runsrow.module.css';
 import Button from '@material-ui/core/Button';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
-import TimeData from '../../../utilities/timedata';
+import TimeData from '../../utilities/timedata';
 
 import { ThemeProvider  } from '@material-ui/core/styles';
-import ColorTheme from '../../../colorpalette';
+import ColorTheme from '../../colorpalette';
 
 
 
