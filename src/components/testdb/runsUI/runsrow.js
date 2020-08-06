@@ -5,8 +5,14 @@ import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import TimeData from '../../../utilities/timedata';
 
+import { ThemeProvider  } from '@material-ui/core/styles';
+import ColorTheme from '../../../colorpalette';
+
+
+
 
 const RunsRow = (props) => {
+
     const { run_uid, id, date, distance, time } = props;
 
     let clock_time = TimeData.generateClockTime(time);
@@ -63,8 +69,10 @@ const RunsRow = (props) => {
             <td>{clock_time}</td>
             <td>{pace}</td>
             <td>
-                <Button variant="contained" color="primary" onClick={editRun} startIcon={<EditIcon/>}>Edit</Button>
-                <Button variant="contained" color="Secondary" onClick={deleteRun} startIcon={<DeleteIcon />}>Delete</Button>
+                <ThemeProvider  theme={ColorTheme}>
+                    <Button variant="contained" color="success" onClick={editRun} startIcon={<EditIcon />}>Edit</Button>
+                    <Button variant="contained" color="secondary" onClick={deleteRun} startIcon={<DeleteIcon />}>Delete</Button>
+                </ThemeProvider >
             </td>
         </tr>
     )
