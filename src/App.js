@@ -20,14 +20,14 @@ function App() {
   // then pass it into the profile component
 
   return (
-    <Router>
-      <AppHeader />
-      <div>
-        <div className="sidebar">
-          <SideNav />
-        </div>
-        <div className="main_content">
-          <Switch>
+      <Router>
+        <AppHeader />
+        <div className="site">
+          <div className="sidebar left">
+            <SideNav />
+          </div>
+        <div className="main_content right">
+          <Switch >
             <Route exact path="/" component={MainPage} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/database" component={DatabaseSearch} />
@@ -36,9 +36,17 @@ function App() {
             <Route exact path="/404" component={PageNotFound} />
             <Redirect to="/404" />
           </Switch>
+          </div>
         </div>
+        <div className="app">
+          <div className="">
+            
+          </div>
+          <div className="">
+            
+          </div>
       </div>
-    </Router>
+      </Router>
   );
 }
 
