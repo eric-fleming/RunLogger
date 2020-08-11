@@ -4,6 +4,11 @@ import AddRunners from '../addrunners/addrunner';
 import Button from '@material-ui/core/Button';
 import SyncIcon from '@material-ui/icons/Sync';
 
+
+import AccessRunnerData from './accessRunnerData';
+
+
+
 function GetRunners() {
 
     const [runners, setRunners] = useState([]);
@@ -12,17 +17,16 @@ function GetRunners() {
         fetchRunners();
     }, []);
 
-
     function fetchRunners() {
-        fetch('http://localhost:3001/runners')
-            .then(response => {
-                return response.text();
-            })
-            .then(payload => {
-                let json = JSON.parse(payload);
-                // payloads are json represented as strings with one key (data)
-                setRunners(json.data);
-            });
+        AccessRunnerData.fetchRunners()
+            .then(data => setRunners(data));
+        
+    };
+
+    function fetchRunnersMongo() {
+        AccessRunnerData.fetchRunnersMongo()
+            .then(data => setRunners(data));
+        ;
     };
 
 
@@ -38,7 +42,7 @@ function GetRunners() {
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">ID#</th>
                         <th scope="col">First</th>
                         <th scope="col">Last</th>
                         <th scope="col">Changes</th>
