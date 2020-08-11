@@ -26,7 +26,7 @@ function fetchRunnersMongo() {
             let json = JSON.parse(payload);
             console.log(json);
             // payloads are json represented as strings with one key (data)
-            let transformed = new Array();
+            let transformed = [];
             for (let i = 0; i < json.length; i++) {
                 let item = json[i];
                 transformed[i] = {

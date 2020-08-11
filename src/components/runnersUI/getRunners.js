@@ -39,8 +39,8 @@ function GetRunners() {
             <Button variant="contained" color="secondary" onClick={fetchRunners} endIcon={<SyncIcon />}>Update Runners</Button>
             <br />
             <br/>
-            <table class="table">
-                <thead class="thead-dark">
+            <table className="table">
+                <thead className="thead-dark">
                     <tr>
                         <th scope="col">ID#</th>
                         <th scope="col">First</th>
