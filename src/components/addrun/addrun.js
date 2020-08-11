@@ -1,8 +1,9 @@
 import React from 'react';
 import style from './addrun.module.css';
-import { Container, TextField, Button} from '@material-ui/core';
+import { TextField, Button} from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send';
 import DatePicker from '../datepicker/datepicker';
+import CustomButton from '../core/button/customButton';
 
 
 const AddRun = () => {
@@ -60,7 +61,7 @@ const AddRun = () => {
                 <div className={style.margin_rt_lg}>
                     <TextField className={style.timeInput} id="time-sec" label="sec" />
                 </div>
-                <Button variant="contained" color="primary" onClick={addRun} endIcon={<SendIcon />}>Enter Run</Button>
+                <CustomButton onClick={addRun} text="Enter Run" color="cyan" endIcon={<SendIcon />}></CustomButton>
             </div>
         </form>
     )

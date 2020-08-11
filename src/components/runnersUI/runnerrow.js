@@ -1,8 +1,6 @@
 import React from 'react'
-import Button from '@material-ui/core/Button';
-import EditIcon from '@material-ui/icons/Edit';
-import DeleteIcon from '@material-ui/icons/Delete';
-
+import { Edit, Delete} from '@material-ui/icons';
+import CustomButton from '../core/button/customButton';
 import AccessRunnerData from './accessRunnerData';
 
 
@@ -23,8 +21,8 @@ const RunnerRow = (props) => {
             <td>{first}</td>
             <td>{last}</td>
             <td>
-                <Button variant="contained" color="primary" onClick={editRunner} startIcon={<EditIcon />}>Edit</Button>
-                <Button variant="contained" color="secondary" onClick={deleteRunner} startIcon={<DeleteIcon />}>Delete</Button>
+                <CustomButton text="Edit" color="yellow" onClick={editRunner} startIcon={<Edit />}></CustomButton>
+                <CustomButton text="Delete" color="red" onClick={deleteRunner} startIcon={<Delete />}></CustomButton>
             </td>
         </tr>
     )
