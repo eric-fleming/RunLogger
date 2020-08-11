@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import RunsRow from './runsrow';
 import AddRun from '../addrun/addrun';
+
+
 function GetRuns() {
 
     const [history, setHistory] = useState([]);
@@ -29,8 +31,8 @@ function GetRuns() {
             <div>
                 <AddRun />
             </div>
-            <table class="table">
-                <thead class="thead-dark">
+            <table className="table">
+                <thead className="thead-dark">
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">date</th>

@@ -1,30 +1,23 @@
 form{
-    min-height: 15vh;
-    width: inherit;
-    padding: 8px;
+    margin-bottom: 16px;
 }
-label,button{
-    margin-left: 16px;
+.idInput{
+    max-width: 80px;
 }
-input{
-    margin-left: 8px;
+.timeInput{
+    max-width: 40px;
+    
 }
-
-.time{
-    width: 80px;
-}
-.run_id{
-    width:120px;
-}
-.dist{
-    width: 120px;
+.distInput{
+    max-width: 80px;
 }
 
-
-.form_Inputs{
+.margin_rt{
     display: inline-flex;
+    margin-right: 8px;
 }
 
-.form_input{
-    flex:1;
+.margin_rt_lg{
+    display: inline-flex;
+    margin-right: 24px;
 }

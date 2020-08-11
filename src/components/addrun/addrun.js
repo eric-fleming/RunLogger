@@ -1,7 +1,6 @@
 import React from 'react';
 import style from './addrun.module.css';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import { Container, TextField, Button} from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send';
 import DatePicker from '../datepicker/datepicker';
 
@@ -39,30 +38,31 @@ const AddRun = () => {
     }
 
     return (
-        <div>
-            <form>
-                <div className={style.form_Inputs}>
-                    <div className={style.form_Input}>
-                        <TextField className={style.run_id} id="runner_id" label="Runner ID"/>
-                    </div>
-                    <div className={style.form_Input}>
-                        {/* <label for="date">Date</label>
-                        <TextField id="date" label="YYYY-MM-DD" /> */}
-                        <DatePicker />
-                    </div>
-                    <div className={style.form_Input}>
-                        <TextField className={style.dist} id="dist" label="Distance" />
-                    </div>
-                    <div className={style.form_Input}>
-                        <label for="hr">Time</label>
-                        <TextField className={style.time} id="time-hr" label="hr" />
-                        <TextField className={style.time} id="time-min" label="min" />
-                        <TextField className={style.time} id="time-sec" label="sec" />
-                    </div>
+        <form>
+            <div>
+                <div className={style.margin_rt_lg}>
+                    <TextField className={style.idInput} id="runner_id" label="Runner ID" />
+                </div>
+                <div className={style.margin_rt}>
+                    <DatePicker />
+                </div>
+            </div>
+            <div>
+                <div className={style.margin_rt_lg}>
+                    <TextField className={style.distInput} id="dist" label="Distance" />
+                </div>
+                <div className={style.margin_rt}>
+                    <TextField className={style.timeInput} id="time-hr" label="hr" />
+                </div>
+                <div className={style.margin_rt}>
+                    <TextField className={style.timeInput} id="time-min" label="min" />
+                </div>
+                <div className={style.margin_rt_lg}>
+                    <TextField className={style.timeInput} id="time-sec" label="sec" />
                 </div>
                 <Button variant="contained" color="primary" onClick={addRun} endIcon={<SendIcon />}>Enter Run</Button>
-            </form>
-        </div>
+            </div>
+        </form>
     )
 }
 

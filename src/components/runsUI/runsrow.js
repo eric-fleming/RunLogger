@@ -5,11 +5,6 @@ import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import TimeData from '../../utilities/timedata';
 
-import { ThemeProvider  } from '@material-ui/core/styles';
-import ColorTheme from '../../colorpalette';
-
-
-
 
 const RunsRow = (props) => {
 
@@ -69,10 +64,8 @@ const RunsRow = (props) => {
             <td>{clock_time}</td>
             <td>{pace}</td>
             <td>
-                <ThemeProvider  theme={ColorTheme}>
-                    <Button variant="contained" color="success" onClick={editRun} startIcon={<EditIcon />}>Edit</Button>
-                    <Button variant="contained" color="secondary" onClick={deleteRun} startIcon={<DeleteIcon />}>Delete</Button>
-                </ThemeProvider >
+                <Button variant="contained" onClick={editRun} startIcon={<EditIcon />}>Edit</Button>
+                <Button variant="contained" onClick={deleteRun} startIcon={<DeleteIcon />}>Delete</Button>
             </td>
         </tr>
     )
