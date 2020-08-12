@@ -1,18 +1,21 @@
 import React from 'react'
 import { Edit, Delete} from '@material-ui/icons';
 import CustomButton from '../core/button/customButton';
-import AccessRunnerData from './accessRunnerData';
 
+//old
+//import AccessRunnerData from './accessRunnerData';
+//new
+import Database from '../../database/runnerinfo';
 
 const RunnerRow = (props) => {
     const { id, first, last } = props;
 
     function editRunner(){
-        return AccessRunnerData.editRunner(id);
+        return Database.editRunner(id);
     }
 
     function deleteRunner(){
-        return AccessRunnerData.deleteRunner(id);
+        return Database.deleteRunner(id);
     }
 
     return (

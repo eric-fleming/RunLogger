@@ -4,25 +4,15 @@ import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import style from './addrunner.module.css';
 
+import Database from '../../database/runnerinfo';
 
 function AddRunner() {
 
-    const addRunner = () => {
+    const add = () => {
         let doc = document;
-        let first = doc.getElementById('firstName').value;
-        let last = doc.getElementById('lastName').value;
-
-        fetch('http://localhost:3001/runners', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ first: first, last: last })
-        })
-            .then(response => {
-                console.log(response.text());
-                window.location.reload();
-            })
+        
+        Database.addRunner(doc)
+            .then(res => console.log(res));
     }
 
     return (
@@ -35,7 +25,15 @@ function AddRunner() {
                         <TextField id="lastName" label="last name" />
                     </div>
                 </div>
-                <Button variant="contained" color="primary" onClick={addRunner} endIcon={<AddIcon />}>
+                <div className={style.name_input}>
+                    <div className={style.half_no_pad}>
+                        <TextField id="city" label="city" />
+                    </div>
+                    <div className={style.half_with_pad}>
+                        <TextField id="country" label="country" />
+                    </div>
+                </div>
+                <Button variant="contained" color="primary" onClick={add} endIcon={<AddIcon />}>
                     Add
                 </Button>
             </form>

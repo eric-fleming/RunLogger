@@ -4,9 +4,10 @@ import AddRunners from '../addrunners/addrunner';
 import CustomButton from '../core/button/customButton';
 import SyncIcon from '@material-ui/icons/Sync';
 
-
-import AccessRunnerData from './accessRunnerData';
-
+//old
+//import AccessRunnerData from './accessRunnerData';
+//new
+import Database from '../../database/runnerinfo';
 
 
 function GetRunners() {
@@ -17,14 +18,9 @@ function GetRunners() {
         fetchRunnersMongo();
     }, []);
 
-    function fetchRunners() {
-        AccessRunnerData.fetchRunners()
-            .then(data => setRunners(data));
-        
-    };
 
     function fetchRunnersMongo() {
-        AccessRunnerData.fetchRunnersMongo()
+        Database.fetchRunnersMongo()
             .then(data => setRunners(data));
         ;
     };
@@ -35,7 +31,7 @@ function GetRunners() {
             <h3>Add a Runner</h3>
             <AddRunners />
             <br/>
-            <CustomButton text="update" color="green" onClick={fetchRunners} endIcon={<SyncIcon />}>Update Runners</CustomButton>
+            <CustomButton text="update" color="green" onClick={fetchRunnersMongo} endIcon={<SyncIcon />}>Update Runners</CustomButton>
             <br />
             <br/>
             <table className="table">
