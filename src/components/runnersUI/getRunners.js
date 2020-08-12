@@ -14,7 +14,7 @@ function GetRunners() {
     const [runners, setRunners] = useState([]);
 
     useEffect(() => {
-        fetchRunners();
+        fetchRunnersMongo();
     }, []);
 
     function fetchRunners() {

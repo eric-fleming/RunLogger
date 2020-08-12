@@ -1,5 +1,7 @@
 const postgresURL = 'http://localhost:3001/runners/';
-const mongoAtlasURL = 'http://localhost:3001/mongo/runners';
+const mongoAtlasURL_dev = 'http://localhost:3001/mongo/runners';
+const mongoAtlasURL_prod = 'https://runloggerdb.herokuapp.com/mongo/runners';
+
 
 function fetchRunners() {
     let data = fetch(postgresURL)
@@ -17,7 +19,7 @@ function fetchRunners() {
 };
 
 function fetchRunnersMongo() {
-    let data = fetch(mongoAtlasURL)
+    let data = fetch(mongoAtlasURL_prod)
         .then(response => {
             //return response.text();
             return response.text();

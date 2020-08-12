@@ -23,6 +23,7 @@
     "serialize-javascript": "^3.1.0"
   },
   "scripts": {
+    "auto-serve": "npm run build && serve -s build",
     "start": "node server.js ",
     "build":"react-scripts build",
     "react-start":"react-scripts start",
