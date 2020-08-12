@@ -13,9 +13,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import { Link } from 'react-router-dom';
-import { Menu, ChevronLeft, ChevronRight, Inbox, Mail} from '@material-ui/icons';
+import { Menu, ChevronLeft, ChevronRight} from '@material-ui/icons';
 import { Room, Mood, People, RssFeed, FitnessCenter, Settings, DirectionsRun } from '@material-ui/icons';
-
+import ColorIcon from '../core/icons/coloricon';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
     },
     appBar: {
+        backgroundColor:"aqua",
         zIndex: theme.zIndex.drawer + 1,
         transition: theme.transitions.create(['width', 'margin'], {
             easing: theme.transitions.easing.sharp,
@@ -90,32 +91,32 @@ export default function SideDrawer(props) {
     const drawerListItems = [
         { 
             'name':'Start',
-            'icon':<Room />,
+            'icon':<ColorIcon type={<Room />} />,
             'route': '/'
         },
         {
             'name': 'Me',
-            'icon': <Mood />,
+            'icon': <ColorIcon type={<Mood />} />,
             'route': '/profile'
         },
         {
             'name': 'runs',
-            'icon': <DirectionsRun />,
+            'icon': <ColorIcon type={<DirectionsRun/>} />,
             'route': '/runs'
         },
         {
             'name': 'Feed',
-            'icon': <RssFeed />,
+            'icon': <ColorIcon type={<RssFeed />} />,
             'route': '/feed'
         },
         {
             'name': 'Friends',
-            'icon': <People />,
+            'icon': <ColorIcon type={<People />} />,
             'route': '/runners'
         },
         {
             'name': 'Challenge',
-            'icon': <FitnessCenter />,
+            'icon': <ColorIcon type={<FitnessCenter />} />,
             'route': '/database'
         }
     ];
