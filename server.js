@@ -18,7 +18,7 @@ app.get('/ping', (req, res) => {
     res.send('pong');
 });
 
-app.get('/*',cors(), (req, res) =>{
+app.get('/*', cors(corsOptions), (req, res) =>{
     res.sendFile(path.join(__dirname,'build','index.html'));
 });
 
