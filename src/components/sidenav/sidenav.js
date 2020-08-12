@@ -1,35 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import NavItem from './navitem';
 import style from './sidenav.module.css';
-import { Room, Mood, People, RssFeed, Assignment, FitnessCenter, Settings} from '@material-ui/icons';
+
 function SideNav() {
     return (
         <div className={style.sidebar}>
-            
-            <Link to="/" className={style.sidebar_link}>
-                <Room />Start
-            </Link>
-            <Link to="/runs" className={style.sidebar_link}>
-                <Mood />Me
-            </Link>
-            <Link to="/profile" className={style.sidebar_link}>
-                <Assignment />
-                Goals
-            </Link>
-            <Link to="/runs" className={style.sidebar_link}>
-                <RssFeed />Feed
-            </Link>
-            <Link to="/runners" className={style.sidebar_link}>
-                <People />Friends
-            </Link>
-            <Link to="/" className={style.sidebar_link}>
-                <FitnessCenter />Challenges
-            </Link>
-            <Link to="/database" className={style.sidebar_link}>
-                <Settings />Settings
-            </Link>
+            <NavItem route="/" text="Start" iconName="room" />
+            <NavItem route="/profile" text="Me" iconName="mood" />
+            <NavItem route="/runs" text="Runs" iconName="run" />
+            <NavItem route="/feed" text="Feed" iconName="rssfeed" />
+            <NavItem route="/runners" text="Friends" iconName="people" />
+            <NavItem route="/" text="Challenges" iconName="fitnesscenter" />
+            <NavItem route="/database" text="Settings" iconName="settings" />
         </div>
     )
 }
 
-export default SideNav
+export default SideNav;
