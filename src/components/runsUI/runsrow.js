@@ -16,7 +16,12 @@ const RunsRow = (props) => {
 
     
     function editRun(){
-        Database.editRun(run_uid)
+        console.log(`Making changes to the Run fields`);
+        let new_date = prompt(`Your (new) date? Or hit cancel.`) || date;
+        let new_dist = prompt(`Your (new) dist? Or hit cancel.`) || distance;
+        let new_time = prompt(`Your (new) time? Or hit cancel.`) || time;
+
+        Database.editRun(run_uid,runner_id,new_date,new_dist,new_time)
             .then(res => console.log(res))
             .catch(err => console.log(err))
     }

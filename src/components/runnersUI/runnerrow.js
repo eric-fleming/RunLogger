@@ -2,9 +2,6 @@ import React from 'react'
 import { Edit, Delete} from '@material-ui/icons';
 import CustomButton from '../core/button/customButton';
 
-//old
-//import AccessRunnerData from './accessRunnerData';
-//new
 import Database from '../../database/runnerinfo';
 
 const RunnerRow = (props) => {

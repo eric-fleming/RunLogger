@@ -50,13 +50,10 @@ const addRun = (doc) => {
 
 
 
-function editRun(runner_id,run_uid,date,distance,time) {
-    console.log(`Making changes to the Run fields`);
-    let new_date = prompt(`Your (new) date? Or hit cancel.`);
-    let new_dist = prompt(`Your (new) dist? Or hit cancel.`);
-    let new_time = prompt(`Your (new) time? Or hit cancel.`);
+function editRun(run_uid,runner_id,date,distance,time) {
+    
 
-    let data = fetch(`http://localhost:3001/runs/${run_uid}`, {
+    let data = fetch(`${mongoAtlasURL_prod}/run/${run_uid}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -64,9 +61,9 @@ function editRun(runner_id,run_uid,date,distance,time) {
         body: JSON.stringify({
             run_uid: run_uid,
             runner_id: runner_id,
-            date: new_date || date,
-            distance: new_dist || distance,
-            time: new_time || time
+            date: date,
+            distance: distance,
+            time: time
         })
     })
         .then(response => {
@@ -77,7 +74,7 @@ function editRun(runner_id,run_uid,date,distance,time) {
 }
 
 function deleteRun(run_uid) {
-    let data = fetch(`http://localhost:3001/runs/${run_uid}`,
+    let data = fetch(`${mongoAtlasURL_prod}/run/${run_uid}`,
         {
             method: 'DELETE',
         })
