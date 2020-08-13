@@ -15,12 +15,12 @@ function GetRunners() {
     const [runners, setRunners] = useState([]);
 
     useEffect(() => {
-        fetchRunnersMongo();
+        fetchRunners();
     }, []);
 
 
-    function fetchRunnersMongo() {
-        Database.fetchRunnersMongo()
+    function fetchRunners() {
+        Database.fetchRunners()
             .then(data => setRunners(data));
         ;
     };
@@ -31,7 +31,7 @@ function GetRunners() {
             <h3>Add a Runner</h3>
             <AddRunners />
             <br/>
-            <CustomButton text="update" color="green" onClick={fetchRunnersMongo} endIcon={<SyncIcon />}>Update Runners</CustomButton>
+            <CustomButton text="update" color="green" onClick={fetchRunners} endIcon={<SyncIcon />}>Update Runners</CustomButton>
             <br />
             <br/>
             <table className="table">

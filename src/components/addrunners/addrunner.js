@@ -12,7 +12,8 @@ function AddRunner() {
         let doc = document;
         
         Database.addRunner(doc)
-            .then(res => console.log(res));
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
     }
 
     return (

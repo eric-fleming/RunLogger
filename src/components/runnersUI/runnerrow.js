@@ -11,11 +11,14 @@ const RunnerRow = (props) => {
     const { id, first, last } = props;
 
     function editRunner(){
-        return Database.editRunner(id);
+        console.log(`Making changes to the Runner fields`);
+        let firstName = prompt(`Your (new) first name?`) || first;
+        let lastName = prompt(`Your (new) last name?`) || last;
+        Database.editRunner(id,firstName,lastName);
     }
 
     function deleteRunner(){
-        return Database.deleteRunner(id);
+        Database.deleteRunner(id);
     }
 
     return (

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import RunsRow from './runsrow';
 import AddRun from '../addrun/addrun';
 
+import Database from '../../database/runinfo';
 
 function GetRuns() {
 
@@ -13,15 +14,9 @@ function GetRuns() {
 
 
     function fetchHistory() {
-        fetch('http://localhost:3001/runs')
-            .then(response => {
-                return response.text();
-            })
-            .then(payload => {
-                let json = JSON.parse(payload);
-                // payloads are json represented as strings with one key (data)
-                setHistory(json.data);
-            });
+        Database.fetchRuns()
+            .then(data => setHistory(data));
+        
     };
 
     return (
@@ -48,7 +43,7 @@ function GetRuns() {
                         <RunsRow
                             key={run.run_uid}
                             run_uid={run.run_uid}
-                            id={run.runnerid}
+                            runner_id={run.runnerid}
                             date={run.date}
                             distance={run.distance}
                             time={run.time}

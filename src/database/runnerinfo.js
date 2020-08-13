@@ -1,10 +1,10 @@
 
-const mongoAtlasURL_dev = 'http://localhost:3001/mongo/';
-const mongoAtlasURL_prod = 'https://runloggerdb.herokuapp.com/mongo/';
+const mongoAtlasURL_dev = 'http://localhost:3001/mongo';
+const mongoAtlasURL_prod = 'https://runloggerdb.herokuapp.com/mongo';
 
 
 
-function fetchRunnersMongo() {
+function fetchRunners() {
     let data = fetch(`${mongoAtlasURL_prod}/runners`)
         .then(response => {
             //return response.text();
@@ -36,7 +36,7 @@ function addRunner(doc){
     let city = doc.getElementById('city').value;
     let country = doc.getElementById('country').value;
 
-    fetch(`${mongoAtlasURL_prod}/runner`, {
+    let data = fetch(`${mongoAtlasURL_prod}/runner`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -52,15 +52,13 @@ function addRunner(doc){
             console.log(response.text());
             window.location.reload();
         })
+    return data;
 }
 
 
-function editRunner(id) {
-    console.log(`Making changes to the Runner fields`);
-    let first = prompt(`Your (new) first name?`);
-    let last = prompt(`Your (new) last name?`);
+function editRunner(id, first, last) {
 
-    fetch(`${mongoAtlasURL_prod}/${id}`, {
+    fetch(`${mongoAtlasURL_prod}/runner/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -92,7 +90,7 @@ function deleteRunner(id) {
 }
 
 const Database = {
-    fetchRunnersMongo,
+    fetchRunners,
     addRunner,
     editRunner,
     deleteRunner
