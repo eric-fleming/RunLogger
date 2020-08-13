@@ -10,7 +10,18 @@ function fetchRuns() {
         .then(payload => {
             let json = JSON.parse(payload);
             console.log(json);
-            return json;
+            let transformed = [];
+            for (let i = 0; i < json.length; i++) {
+                let item = json[i];
+                transformed[i] = {
+                    'run_uid': item['_id'],
+                    'runner_id': item['runner_id'],
+                    'date': item['date'],
+                    'distance': item['distance'],
+                    'time': item['time']
+                };
+            }
+            return transformed;
             
         });
     return data;

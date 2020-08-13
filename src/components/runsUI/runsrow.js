@@ -12,7 +12,7 @@ const RunsRow = (props) => {
 
     let clock_time = TimeData.generateClockTime(time);
     let pace = TimeData.generatePace(distance,time);
-    let clean_date = TimeData.trimDateString(date);
+    let clean_date = TimeData.americanDateFormat(TimeData.trimDateString(date));
 
     
     function editRun(){

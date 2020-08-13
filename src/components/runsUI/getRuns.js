@@ -29,7 +29,7 @@ function GetRuns() {
             <table className="table">
                 <thead className="thead-dark">
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">Runner ID#</th>
                         <th scope="col">date</th>
                         <th scope="col">dist</th>
                         <th scope="col">time</th>
@@ -43,7 +43,7 @@ function GetRuns() {
                         <RunsRow
                             key={run.run_uid}
                             run_uid={run.run_uid}
-                            runner_id={run.runnerid}
+                            runner_id={run.runner_id}
                             date={run.date}
                             distance={run.distance}
                             time={run.time}
