@@ -8,7 +8,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-import { teal } from '@material-ui/core/colors';
+import { orange } from '@material-ui/core/colors';
 import TimeData from '../../utilities/timedata';
 
 
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
         paddingTop: '56.25%', // 16:9
     },
     avatar: {
-        backgroundColor: teal['A200'],
+        backgroundColor: orange['A200'],
     },
 }));
 
