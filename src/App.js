@@ -5,6 +5,19 @@ import { BrowserRouter as Router } from 'react-router-dom';
 // Components
 import SideDrawer from './components/sidenav/sideDrawer';
 import Main from './components/sidenav/main';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { teal, orange} from '@material-ui/core/colors';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#00FFFF',
+    },
+    secondary: {
+      main: orange['A200'],
+    },
+  },
+});
 
 
 function App() {
@@ -13,10 +26,12 @@ function App() {
   // then pass it into the profile component
 
   return (
-    <Router>
-      <SideDrawer main={<Main/>} />
-      
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <SideDrawer main={<Main />} />
+      </Router>
+    </ThemeProvider>
+    
   );
 }
 
