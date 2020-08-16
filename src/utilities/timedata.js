@@ -38,7 +38,7 @@ function generatePace(d, t) {
         if (sec < 10) {
             sec = `0${sec}`;
         }
-        return `${min}:${sec} min/mi`;
+        return `${min}:${sec}`;
     }
     else {
         return `pace is over an hour per mile`;

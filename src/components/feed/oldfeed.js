@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import RunsRow from './../runsUI/runsrow';
 import FeedInfo from '../../database/feedinfo';
-import Grid from '@material-ui/core/Grid';
-import FeedItem from './feedItem';
-
-const images = [
-    "./images/screenshot_runkeeper_1.png",
-    "./images/screenshot_runkeeper_2.png",
-    "./images/screenshot_runkeeper_3.png"
-]
 
 
 function Feed() {
@@ -27,22 +20,34 @@ function Feed() {
     return (
         <div>
             <h3>Feed</h3>
-            <Grid container direction="column" justify="center" alignItems="center">
-                {history.map((run,index) => (
-                    <Grid item xs-12>
-                        <FeedItem 
+
+            <table className="table">
+                <thead className="thead-dark">
+                    <tr>
+                        <th scope="col">Runner ID#</th>
+                        <th scope="col">date</th>
+                        <th scope="col">dist</th>
+                        <th scope="col">time</th>
+                        <th scope="col">pace</th>
+                        <th scope="col">changes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {history.map(run => (
+
+                        <RunsRow
                             key={run.run_uid}
                             run_uid={run.run_uid}
                             runner_id={run.runner_id}
-                            imgLink={images[index % images.length]}
-                            exercise={'Run'}
                             date={run.date}
                             distance={run.distance}
                             time={run.time}
+                            pace={run.pace}
                         />
-                    </Grid>
-                ))}
-            </Grid>
+                    ))}
+                </tbody>
+            </table>
+
         </div>
     )
 }
