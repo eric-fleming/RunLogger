@@ -1,22 +1,13 @@
 import React from 'react';
-import '../App.css';
-import Profile from '../components/profile/profile';
+
 
 
 const MainPage = () => {
     return (
-        <div className="App">
-            <main>
-                <section className="left-content">
-                    <Profile runCount="535" totalMiles="1600 mi" longestRun="26.2 mi" fastestPace="6:35 min/mi" />
-                </section>
-                <section className="right-content">
-                    
-                </section>
-
-            </main>
-
-        </div>
+        <img
+            style={{ width: 100+'%', padding:0}}
+            src={process.env.PUBLIC_URL + '/images/chicago.png'}
+            alt="chicago" />
     );
 }
 
