@@ -28,6 +28,20 @@ function fetchRunners() {
     return data;
 };
 
+
+function fetchRunner(id){
+    let runner = fetchRunners().then(runners => {
+        for (let i = 0; i < runners.length; i++) {
+            if (runners[i].id === String(id)) {
+                return runners[i];
+            }
+        }
+        return {}
+    });
+    
+    return runner;
+}
+
 function addRunner(doc){
     // doc is the document opject from the calling component
     let firstName = doc.getElementById('firstName').value;
@@ -91,6 +105,7 @@ function deleteRunner(id) {
 
 const Database = {
     fetchRunners,
+    fetchRunner,
     addRunner,
     editRunner,
     deleteRunner

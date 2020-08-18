@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import FeedInfo from '../../database/feedinfo';
 import Grid from '@material-ui/core/Grid';
 import FeedItem from './feedItem';
+import Database from '../../database/runnerinfo';
+
 
 const images = [
     "./images/screenshot_runkeeper_1.png",
@@ -13,7 +15,6 @@ const images = [
 function Feed() {
 
     const [history, setHistory] = useState([]);
-
     useEffect(() => {
         refreshFeed();
     }, []);
@@ -24,14 +25,14 @@ function Feed() {
 
     };
 
+
     return (
         <div>
             <h3>Feed</h3>
             <Grid container direction="column" justify="center" alignItems="center">
                 {history.map((run,index) => (
-                    <Grid item xs-12>
+                    <Grid item xs={12} key={run.run_uid}>
                         <FeedItem 
-                            key={run.run_uid}
                             run_uid={run.run_uid}
                             runner_id={run.runner_id}
                             imgLink={images[index % images.length]}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -9,8 +9,10 @@ import CardContent from '@material-ui/core/CardContent';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import { orange } from '@material-ui/core/colors';
-import TimeData from '../../utilities/timedata';
 
+
+import TimeData from '../../utilities/timedata';
+import Database from '../../database/runnerinfo';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -28,21 +30,36 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function FeedItem(props) {
+
+    const [runner, setRunner] = useState([]);
+    useEffect(() => {
+        getRunner(runner_id);
+    }, []);
+
+    function getRunner(id){
+        Database.fetchRunner(id)
+            .then(data => {
+                console.log(data);
+                setRunner(data);
+            });
+    }
+
+
     const classes = useStyles();
-    const {exercise, imgLink, date, distance, time, message} = props;
+    const { exercise, imgLink, runner_id, date, distance, time, message} = props;
 
     let clock_time = TimeData.generateClockTime(time);
     let pace = TimeData.generatePace(distance, time);
     let clean_date = TimeData.americanDateFormat(TimeData.trimDateString(date));
-
-
+    let shortened_id = runner_id.substring(runner_id.length -2, runner_id.length);
+    let shortened_name = String(runner.first).substring(0, 1).toLocaleUpperCase() + String(runner.last).substring(0,1).toLocaleUpperCase();
 
     return (
         <Paper>
             <Card className={classes.root}>
                 <CardHeader
                     avatar={
-                        <Avatar aria-label="runner" className={classes.avatar}>DG</Avatar>
+                        <Avatar aria-label="runner" className={classes.avatar}>{shortened_name}</Avatar>
                     }
                     title={clean_date}
                     subheader={exercise}

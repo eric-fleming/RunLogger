@@ -172,8 +172,8 @@ export default function SideDrawer(props) {
                 <Divider />
                 <List>
                     {drawerListItems.map(item => (
-                        <Link to={item.route}>
-                            <ListItem button key={item.name}>
+                        <Link key={item.name} to={item.route}>
+                            <ListItem button >
                                 <ListItemIcon>{item.icon}</ListItemIcon>
                                 <ListItemText primary={item.name} />
                             </ListItem>

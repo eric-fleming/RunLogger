@@ -1,23 +1,26 @@
 import Database from './runinfo';
 
-let dataURL;
-init();
+let dataURL = init('prod');
 
-function init(){
-    const mode = 'prod';
+function init(mode){
     const mongoAtlasURL_dev = 'http://localhost:3001/mongo';
     const mongoAtlasURL_prod = 'https://runloggerdb.herokuapp.com/mongo';
     
     if (mode === 'prod') {
-        dataURL = mongoAtlasURL_prod
+        return mongoAtlasURL_prod
     }
     else {
-        dataURL = mongoAtlasURL_dev
+        return mongoAtlasURL_dev
     }
 }
 
 
-function refreshFeed(myID) {
+function refreshFeed() {
+
+    return Database.fetchRuns();
+};
+
+function refreshFeedExclude(myID) {
 
     let data = Database.fetchRuns()
         .then(json => {
@@ -30,7 +33,8 @@ function refreshFeed(myID) {
 };
 
 const FeedInfo = {
-    refreshFeed
+    refreshFeed,
+    refreshFeedExclude
 }
 
 export default FeedInfo;
