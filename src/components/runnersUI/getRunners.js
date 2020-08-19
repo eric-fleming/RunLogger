@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import RunnerRow from './runnerrow';
-import AddRunners from '../addrunners/addrunner';
 import CustomButton from '../core/button/customButton';
 import SyncIcon from '@material-ui/icons/Sync';
 
@@ -28,10 +27,8 @@ function GetRunners() {
 
     return (
         <div>
-            <h3>Add a Runner</h3>
-            <AddRunners />
-            <br/>
-            <CustomButton text="update" color="green" onClick={fetchRunners} endIcon={<SyncIcon />}>Update Runners</CustomButton>
+            <h3>Get All Runners</h3>
+            <CustomButton text="update" color="green" onClick={fetchRunners} endIcon={<SyncIcon />} />
             <br />
             <br/>
             <table className="table">

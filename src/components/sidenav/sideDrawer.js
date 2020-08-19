@@ -115,9 +115,9 @@ export default function SideDrawer(props) {
             'route': '/runners'
         },
         {
-            'name': 'Challenge',
+            'name': 'Challenges',
             'icon': <ColorIcon type={<FitnessCenter />} />,
-            'route': '/database'
+            'route': '/challenges'
         }
     ];
 
@@ -182,10 +182,12 @@ export default function SideDrawer(props) {
                 </List>
                 <Divider />
                 <List>
-                    <ListItem button key="Settings">
-                        <ListItemIcon><Settings /></ListItemIcon>
-                        <ListItemText primary="Settings" />
-                    </ListItem>
+                    <Link key="settings" to="/settings">
+                        <ListItem button>
+                            <ListItemIcon><Settings /></ListItemIcon>
+                            <ListItemText primary="Settings" />
+                        </ListItem>
+                    </Link>
                 </List>
             </Drawer>
             <main className={classes.content}>

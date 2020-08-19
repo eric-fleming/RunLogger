@@ -64,7 +64,7 @@ function addRunner(doc){
     })
         .then(response => {
             console.log(response.text());
-            window.location.reload();
+            //window.location.reload();
         })
     return data;
 }

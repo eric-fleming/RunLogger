@@ -17,27 +17,30 @@ function AddRunner() {
     }
 
     return (
-            <form>
-                <div className={style.name_input}>
-                    <div className={style.half_no_pad}>
-                        <TextField id="firstName" label="first name" />
+            <section>
+                <h2>Add a Runner</h2>
+                <form>
+                    <div className={style.name_input}>
+                        <div className={style.half_no_pad}>
+                            <TextField id="firstName" label="first name" />
+                        </div>
+                        <div className={style.half_with_pad}>
+                            <TextField id="lastName" label="last name" />
+                        </div>
                     </div>
-                    <div className={style.half_with_pad}>
-                        <TextField id="lastName" label="last name" />
+                    <div className={style.name_input}>
+                        <div className={style.half_no_pad}>
+                            <TextField id="city" label="city" />
+                        </div>
+                        <div className={style.half_with_pad}>
+                            <TextField id="country" label="country" />
+                        </div>
                     </div>
-                </div>
-                <div className={style.name_input}>
-                    <div className={style.half_no_pad}>
-                        <TextField id="city" label="city" />
-                    </div>
-                    <div className={style.half_with_pad}>
-                        <TextField id="country" label="country" />
-                    </div>
-                </div>
-                <Button variant="contained" color="primary" onClick={add} endIcon={<AddIcon />}>
-                    Add
-                </Button>
-            </form>
+                    <Button variant="contained" color="primary" onClick={add} endIcon={<AddIcon />}>
+                        Add
+                    </Button>
+                </form>
+            </section>
     )
 }
 
