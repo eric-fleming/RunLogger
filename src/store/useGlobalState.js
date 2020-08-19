@@ -13,14 +13,14 @@ const reducer = (state, action) => {
 
         default:
             return{
-                isLoggedIn:false,
+                isLoggedIn: false,
             }
     }
 }
 
 
 const useGlobalState = () => {
-    const [globalState,globalDispatch] = useReducer(reducer, {
+    const [globalState, globalDispatch] = useReducer(reducer, {
         isLoggedIn:false,
     });
 
